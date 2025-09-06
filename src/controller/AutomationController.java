@@ -29,7 +29,8 @@ public class AutomationController {
      // view.manualSearchButton.addActionListener(e -> setManualSearch());
     }
 
-    private void triggerAutomatedSearch() {
+    private void triggerAutomatedSearch() 
+    {
         model.setSearchMode("automated");
 
         SwingWorker<Void, Void> worker = new SwingWorker<>() {
@@ -37,31 +38,31 @@ public class AutomationController {
             protected Void doInBackground() 
             {
                 try {
-                	// TODO : should change the URL to new that suitable with the server side . 
-                    URL url = new URL("http://localhost:3000/prepareAndSchedule");
-                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                    conn.setRequestMethod("POST");
-                    conn.setRequestProperty("Content-Type", "application/json");
-                    conn.setDoOutput(true);
-
-                    // Example JSON body
-                    String jsonInput = "{\"action\":\"start_schedule\"}";
-                    try (OutputStream os = conn.getOutputStream()) {
-                        os.write(jsonInput.getBytes(StandardCharsets.UTF_8));
-                    }
-
-                    int responseCode = conn.getResponseCode();
-                    if (responseCode == 200) {
-                        JOptionPane.showMessageDialog(view,
-                            "✅ Automated search started successfully!",
-                            "Success",
-                            JOptionPane.INFORMATION_MESSAGE);
-                    } else {
-                        JOptionPane.showMessageDialog(view,
-                            "⚠️ Server responded with code: " + responseCode,
-                            "Error",
-                            JOptionPane.ERROR_MESSAGE);
-                    }
+	                	// TODO : should change the URL to new that suitable with the server side . 
+	                    URL url = new URL("http://localhost:3000/api/scheduler/start");
+	                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	                    conn.setRequestMethod("POST");
+	                    conn.setRequestProperty("Content-Type", "application/json");
+	                    conn.setDoOutput(true);
+	
+	                    // Example JSON body
+	                    String jsonInput = "{\"action\":\"start_schedule\"}";
+	                    try (OutputStream os = conn.getOutputStream()) {
+	                        os.write(jsonInput.getBytes(StandardCharsets.UTF_8));
+	                    }
+	
+	                    int responseCode = conn.getResponseCode();
+	                    if (responseCode == 200) {
+	                        JOptionPane.showMessageDialog(view,
+	                            "✅ Automated search started successfully!",
+	                            "Success",
+	                            JOptionPane.INFORMATION_MESSAGE);
+	                    } else {
+	                        JOptionPane.showMessageDialog(view,
+	                            "⚠️ Server responded with code: " + responseCode,
+	                            "Error",
+	                            JOptionPane.ERROR_MESSAGE);
+	                    }
 
                     conn.disconnect();
                 } catch (Exception ex) {

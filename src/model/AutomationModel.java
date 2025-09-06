@@ -1,9 +1,12 @@
 package model;
 
-public class AutomationModel {
+public class AutomationModel 
+{
     private String searchMode; // "automated" or "manual"
 
-    public String getSearchMode() {
+    // Here the model class do nothing . 
+    public String getSearchMode() 
+    {
         return searchMode;
     }
 
