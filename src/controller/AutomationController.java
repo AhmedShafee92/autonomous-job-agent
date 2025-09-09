@@ -1,6 +1,7 @@
 package controller;
 
 import model.AutomationModel;
+import model.Session;
 import view.AutomationView;
 
 import javax.swing.*;
@@ -40,14 +41,17 @@ public class AutomationController {
                 try {
 	                	// TODO : should change the URL to new that suitable with the server side . 
 	                    URL url = new URL("http://localhost:3000/api/scheduler/start");
+		            	int userId = Session.getUserId();
+
 	                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 	                    conn.setRequestMethod("POST");
 	                    conn.setRequestProperty("Content-Type", "application/json");
 	                    conn.setDoOutput(true);
 	
-	                    // Example JSON body
-	                    String jsonInput = "{\"action\":\"start_schedule\"}";
-	                    try (OutputStream os = conn.getOutputStream()) {
+	                    // JSON body
+	                    String jsonInput = String.format("{\"userId\": %s}", userId);
+	                    try (OutputStream os = conn.getOutputStream()) 
+	                    {
 	                        os.write(jsonInput.getBytes(StandardCharsets.UTF_8));
 	                    }
 	

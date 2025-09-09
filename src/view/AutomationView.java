@@ -32,4 +32,5 @@ public class AutomationView extends JPanel
         gbc.gridy = 1;
         add(manualSearchButton, gbc);
     }
+    
 }
