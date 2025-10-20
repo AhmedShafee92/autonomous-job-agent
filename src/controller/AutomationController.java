@@ -10,17 +10,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-public class AutomationController {
+public class AutomationController 
+{
     private final AutomationModel model;
     private final AutomationView view;
-
     // TODO : In the future (Need three status (default start search, stop searching, restart the searching) )
     // For now the only one that will work in start running the schedule system. 
     public AutomationController(AutomationModel model, AutomationView view) 
     {
         this.model = model;
         this.view = view;
-
         initController();
     }
 
@@ -33,12 +32,11 @@ public class AutomationController {
     private void triggerAutomatedSearch() 
     {
         model.setSearchMode("automated");
-
         SwingWorker<Void, Void> worker = new SwingWorker<>() {
             @Override
             protected Void doInBackground() 
             {
-                try {
+               try{
 	                	// TODO : should change the URL to new that suitable with the server side . 
 	                    URL url = new URL("http://localhost:3000/api/scheduler/start");
 		            	int userId = Session.getUserId();
@@ -54,14 +52,16 @@ public class AutomationController {
 	                    {
 	                        os.write(jsonInput.getBytes(StandardCharsets.UTF_8));
 	                    }
-	
 	                    int responseCode = conn.getResponseCode();
-	                    if (responseCode == 200) {
+	                    if (responseCode == 200) 
+	                    {
 	                        JOptionPane.showMessageDialog(view,
 	                            "✅ Automated search started successfully!",
 	                            "Success",
 	                            JOptionPane.INFORMATION_MESSAGE);
-	                    } else {
+	                    } 
+	                    else 
+	                    {
 	                        JOptionPane.showMessageDialog(view,
 	                            "⚠️ Server responded with code: " + responseCode,
 	                            "Error",
@@ -69,7 +69,8 @@ public class AutomationController {
 	                    }
 
                     conn.disconnect();
-                } catch (Exception ex) {
+                } catch (Exception ex) 
+                {
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(view,
                         "❌ Failed to connect to server:\n" + ex.getMessage(),

@@ -24,7 +24,7 @@ public class AnalyseController
     public static void sendAnalyseRequest(String PathFile, int userID) 
     {
 	    try {
-	    	       	
+	    	       	 
 		        URL url = new URL("http://localhost:3000/api/analyse");
 		        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		        

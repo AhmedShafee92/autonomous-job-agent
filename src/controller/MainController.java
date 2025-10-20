@@ -70,15 +70,12 @@ public class MainController
     }
     
     private void showAutomationView() 
-    {
-		
+    {		
 		  AutomationView automationView = new AutomationView(); 
 		  frame.setContentPane(automationView); 
 		  frame.revalidate(); 
 		  frame.repaint();
 		 
     }
-    
-    
-   
+      
 }
