@@ -22,7 +22,7 @@ public class MainController
         this.model = new MainModel();
 		this.view = view;		
 		this.frame = new JFrame();
-        initListeners();
+        initListeners(); 
     }
 
     public MainController(MainModel model, MainView view) 

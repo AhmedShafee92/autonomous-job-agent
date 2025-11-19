@@ -70,9 +70,11 @@ public class StoreUserDataLocal
 	{
 		try {
 				// Create the storage directory if it doesn't exist
-				if (!Files.exists(projectDir)) {
+				if (!Files.exists(projectDir)) 
+				{
 					Files.createDirectories(projectDir);
-				} else {
+				} else 
+				{
 					// nothing to do (folder exist)
 				}
 			} catch (Exception e) 
@@ -83,12 +85,14 @@ public class StoreUserDataLocal
 
 		try {
 
-				if (!Files.exists(personalDataPath)) {
+				if (!Files.exists(personalDataPath)) 
+				{
 					Files.createDirectories(personalDataPath);
 				}
-				if (!Files.exists(analyseDataPath)) {
+				if (!Files.exists(analyseDataPath)) 
+				{
 					Files.createDirectories(analyseDataPath);
-			}
+				}
 			} catch (IOException e) 	
 			{
 				System.err.println("Error creating directories: " + e.getMessage());
