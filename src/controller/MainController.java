@@ -50,12 +50,14 @@ public class MainController
         });
         
         view.analysePersonalDataButton.addActionListener(e -> {
-            if (!model.isCVValid()) {
+            if (!model.isCVValid()) 
+            {
                 JOptionPane.showMessageDialog(view, "CV file missing or empty.");
                 return;
             }
 
-            try {
+            try
+            {
 				model.analyseData(frame);
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block

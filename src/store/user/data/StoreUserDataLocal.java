@@ -270,20 +270,22 @@ public class StoreUserDataLocal
 	{
 		Path jsonFilePath = directoryPath.resolve("user_analyse_data.json");
 		try {
-			// Ensure the directory exists
-			if (!Files.exists(directoryPath)) {
-				Files.createDirectories(directoryPath); // Create the directory if it doesn't exist
-			}
+				// Ensure the directory exists
+				if (!Files.exists(directoryPath)) 
+				{
+					Files.createDirectories(directoryPath); // Create the directory if it doesn't exist
+				}
+	
+				// Check if the JSON file already exists
+				if (Files.exists(jsonFilePath)) 
+				{
+					return null;
+				}
+	
+				// Create an empty JSON file
+				Files.createFile(jsonFilePath);
 
-			// Check if the JSON file already exists
-			if (Files.exists(jsonFilePath)) {
-				return null;
-			}
-
-			// Create an empty JSON file
-			Files.createFile(jsonFilePath);
-
-		} catch (IOException e) {
+			} catch (IOException e) {
 			System.err.println("Error creating JSON file: " + e.getMessage());
 		}
 

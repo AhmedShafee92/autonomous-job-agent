@@ -31,7 +31,8 @@ public class MainModel
                 new Object[]{"Yes, Save", "No, Retry"},
                 "Yes, Save");
             
-
+	            // Here if the user press yes which mean the analysing that the user got is suitable 
+	            // else if pressed no -> nothing will happen and the data will not be save in the server .
 	            if (decision == JOptionPane.OK_OPTION) 
 	            {
 	            	int userId = Session.getUserId();
