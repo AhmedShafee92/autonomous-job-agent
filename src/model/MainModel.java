@@ -22,6 +22,9 @@ public class MainModel
     public void analyseData(JFrame frame) throws Exception 
     {
         try {
+        	   // This analysing is using the google-ai-api 
+        	   // port 5000: 
+        		// This analysing is success 
 	            String result = ConnectGoogleAPIServer.analyseUserCVData();
 	            int decision = JOptionPane.showOptionDialog(frame, result,
                 "AI CV Analysis",
@@ -37,7 +40,11 @@ public class MainModel
 	            {
 	            	int userId = Session.getUserId();
 	            	String filePath =  StoreUserDataLocal.getPersonaldatapahtcv();
-	            	// Here we sending request to the server to save the user analysing data in the DB . 
+	            	// Here we sending request to the server to save the user analysing data in the DB .
+	            	
+	            	// This analysing is using the google-ai-api 
+	         	   // port 3000: 
+	        	   // This analysing is failed  
 	            	AnalyseController.sendAnalyseRequest(filePath,userId);
 	            		    
 	            }
