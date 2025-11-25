@@ -26,7 +26,7 @@ public class AutomationController
     private void initController() 
     {
         view.automatedSearchButton.addActionListener(e -> triggerAutomatedSearch());
-     // view.manualSearchButton.addActionListener(e -> setManualSearch());
+        view.manualSearchButton.addActionListener(e -> setManualSearch());
     }
 
     private void triggerAutomatedSearch() 
@@ -83,8 +83,6 @@ public class AutomationController
         worker.execute();
     }
     
-    // This function unused in the future should change to one that will doing manual search . 
-    @SuppressWarnings("unused")
 	private void setManualSearch() 
     {
         model.setSearchMode("manual");

@@ -24,7 +24,6 @@ public class MainModel
         try {
         	   // This analysing is using the google-ai-api 
         	   // port 5000: 
-        		// This analysing is success 
 	            String result = ConnectGoogleAPIServer.analyseUserCVData();
 	            int decision = JOptionPane.showOptionDialog(frame, result,
                 "AI CV Analysis",
@@ -44,7 +43,6 @@ public class MainModel
 	            	
 	            	// This analysing is using the google-ai-api 
 	         	   // port 3000: 
-	        	   // This analysing is failed  
 	            	AnalyseController.sendAnalyseRequest(filePath,userId);
 	            		    
 	            }
